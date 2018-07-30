@@ -1,0 +1,21 @@
+zuul:
+  ignored-services: '*'
+  routes:
+    servicea:
+      path: /**
+      serviceId: servicea
+    serviceb:
+      path: /**
+      serviceId: serviceb
+    eureka:
+      path: /dashboard/**
+      url: http://discovery:8761/
+
+  hystrix:
+     command:
+       default:
+         execution:
+           isolation:
+             thread:
+               timeoutInMilliseconds: 60000
+
